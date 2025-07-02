@@ -23,6 +23,8 @@ echo "Запускаем контейнер $CONTAINER_NAME..."
 docker run -d \
   --name "$CONTAINER_NAME" \
   -p 54321:80 \
+  -p 54433:443 \
+  -v "$PROJECT_DIR/ssl/certs:/etc/nginx/ssl" \
   --restart unless-stopped \
   "$IMAGE_NAME"
 
